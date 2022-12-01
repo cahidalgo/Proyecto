@@ -11,8 +11,11 @@ package com.mycompany.registrar.modelo;
 public class Bar {
     private String nombre;
 
-    public Bar(String nombre){
-        this.nombre=nombre;
+    public Bar(){
+    }
+    
+    public Bar(String n){
+        this.nombre=n;
     }
 
     public String getNombre() {

@@ -18,11 +18,14 @@ public class Controlador implements ActionListener {
     
     private Vista view;
     private Modelo modelo;
-    private Bar bar; 
+    private Bar bar;
+    private String nombre;
+    
 
-    public Controlador(Modelo modelo, Vista view) {
+    public Controlador(Modelo modelo, Vista view, Bar b) {
         this.view = view;
         this.modelo = modelo;
+        this.bar=b;
         this.view.txtnombre.addActionListener(this);
     }
     
@@ -33,7 +36,14 @@ public class Controlador implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e){
+       nombre=view.txtnombre.getText();
+       bar=new Bar(nombre);
+       modelo.setBar(bar);
        
-        view.setBar(view.txtnombre.getText());
+       for(Bar b:modelo.getBar()){
+           view.texto.setText(b.toString());
+       }
+       
+   
     }
 }
