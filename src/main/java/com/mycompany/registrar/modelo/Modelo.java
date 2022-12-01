@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.registrar.modelo;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +8,15 @@ import javax.swing.DefaultListModel;
  * @author User
  */
 public class Modelo {
-    private List <Bar> bares;
-    private DefaultListModel model;
+    private List <Bar> bares=new ArrayList<>();
+    private DefaultListModel model=new DefaultListModel<>();
 
-    public Modelo(List<Bar> bares, DefaultListModel model) {
-        this.bares = bares;
-        this.model = model;
-    }
-    public void deleteModel(Bar b){
-       model.removeElement(b);
+    
+    public void deleteModel(String b){
+        for(Bar ba:bares){
+            if(b.equals(ba.getNombre()))
+                model.removeElement(ba);
+        }
     }
            
     public void setModel(Bar a){

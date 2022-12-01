@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.registrar.controlador;
 
 import com.mycompany.registrar.modelo.Bar;
@@ -27,6 +23,7 @@ public class Controlador implements ActionListener {
         this.modelo = modelo;
         this.bar=b;
         this.view.txtnombre.addActionListener(this);
+        this.view.jButton1.addActionListener(this);
     }
     
     public void iniciar(){
@@ -36,12 +33,20 @@ public class Controlador implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e){
-       nombre=view.jTextField1.getText();
-       bar=new Bar(nombre);
-       modelo.setBar(bar);
-       modelo.setModel(bar);
-       
-       view.Lista1.setModel(modelo.getModel());
+        if (e.getSource()==view.txtnombre) {
+           nombre=view.jTextField1.getText();
+            bar=new Bar(nombre);
+            modelo.setBar(bar);
+            modelo.setModel(bar);
+            view.Lista1.setModel(modelo.getModel()); 
+        }else if(e.getSource()==view.jButton1){
+            String dato=view. jTextField2.getText();
+            modelo.deleteModel(dato);
+            view.Lista1.setModel(modelo.getModel());
+        }
+        
    
     }
+    
+  
 }
