@@ -19,10 +19,16 @@ public class Modelo {
         this.bares = bares;
         this.model = model;
     }
-
-    
-    public void setModel(String a){
+    public void deleteModel(Bar b){
+       model.removeElement(b);
+    }
+           
+    public void setModel(Bar a){
         model.addElement(a);
+    }
+    
+    public DefaultListModel getModel(){
+        return model;
     }
     
     public int getSize(){

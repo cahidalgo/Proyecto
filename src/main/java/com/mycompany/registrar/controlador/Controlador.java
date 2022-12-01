@@ -36,14 +36,12 @@ public class Controlador implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e){
-       nombre=view.txtnombre.getText();
+       nombre=view.jTextField1.getText();
        bar=new Bar(nombre);
        modelo.setBar(bar);
+       modelo.setModel(bar);
        
-       for(Bar b:modelo.getBar()){
-           view.texto.setText(b.toString());
-       }
-       
+       view.Lista1.setModel(modelo.getModel());
    
     }
 }
