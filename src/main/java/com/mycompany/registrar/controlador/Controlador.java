@@ -38,11 +38,13 @@ public class Controlador implements ActionListener {
             bar=new Bar(nombre);
             modelo.setBar(bar);
             modelo.setModel(bar);
-            view.Lista1.setModel(modelo.getModel()); 
+            view.Lista1.setModel(modelo.getModel());
+            view.jTextField1.setText("");
         }else if(e.getSource()==view.jButton1){
             String dato=view. jTextField2.getText();
             modelo.deleteModel(dato);
             view.Lista1.setModel(modelo.getModel());
+            view.jTextField1.setText("");
         }
         
    
